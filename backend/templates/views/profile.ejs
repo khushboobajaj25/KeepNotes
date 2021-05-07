@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Profile</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<%- include('../partials/navbar'); %>
+		<main class="container">
+			<div class="p-5 rounded" style="background-color:antiquewhite">
+				<form action="/profile" method="POST" enctype="multipart/form-data">
+
+					<p class="text-danger"></p>
+
+					<p class="text-success"></p>
+
+
+					<div class="mb-3">
+						<label for="email" class="form-label">Username</label>
+						<input value="<%= records[0].email %>" type="email" class="form-control" id="email" readonly>
+					</div>
+
+					<hr>
+					<p class="text-primary">If you want to change your account password fill below details </p>
+					<div class="mb-3">
+						<label for="password1" class="form-label">Old Password</label>
+						<input type="password" class="form-control" id="password1" name="password"
+							placeholder="Enter old password">
+					</div>
+
+					<div class="mb-3">
+						<label for="password2" class="form-label">New Password</label>
+						<input type="password" class="form-control" id="password2" name="new_password"
+							placeholder="Enter new password">
+					</div>
+
+					<div class="mb-3">
+						<label for="password3" class="form-label">Confirm New Password</label>
+						<input type="password" class="form-control" id="password3" name="confirm_password"
+							placeholder="Enter confirm new password">
+					</div>
+
+					<div class="item">
+						<img class="card__image mb-3" src="<%= records[0].image_name %>"
+							onerror="this.src='default.jpg'">
+					</div>
+
+					<div class="form-group">
+						<label for="mob_no" class="col-md-3 control-label">Profile Image</label>
+						<div class="col-sm-9">
+							<input class="form-control" type="file" name="uploaded_image" multiple>
+						</div>
+					</div>
+					<br>
+					<a class="btn btn-secondary" role="button" href="/home"> Back </a>
+
+					<button type="submit" class="btn btn-primary">Submit</button>
+
+				</form>
+			</div>
+
+		</main>
+
+
+</body>
+
+</html>

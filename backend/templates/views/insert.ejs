@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/insert.css">
+  <title>Insert</title>
+</head>
+
+<body>
+  <%- include('../partials/navbar'); %>
+    <br><br>
+    <div class="container">
+      <form action="/insert" method="POST">
+        <label for="lname">Title</label>
+        <input type="text" id="title" name="title" placeholder="Enter title...">
+
+        <label for="subject">Message</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+    <script type="text/javascript">
+      function disableBack() { window.history.forward(); }
+      setTimeout("disableBack()", 0);
+      window.onunload = function () { null };
+  </script>
+</body>
+
+</html>

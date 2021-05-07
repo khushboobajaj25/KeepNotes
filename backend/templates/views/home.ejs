@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <%- include('../partials/navbar'); %>
+        <main class="container">
+            <div class="p-5 rounded bg-color black">
+
+                <h3 class="text-primary text-center"> <strong> Keep Notes </strong> </h3>
+                <br>
+                <br>
+
+                <div class="row row-cols-1 row-cols-md-4 g-5">
+                    <%if (records!==null) {%>
+                        <%records.forEach(function(row){%>
+                            <div class="col">
+
+                                <div class="card border-primary h-100" style="width: 18rem;">
+
+                                    <div class="card-body">
+
+                                        <p class="card-text">
+                                            <%=row.title %>
+                                        </p>
+                                        <p class="card-text">Date:<%=row.dateofnote %>
+                                        </p>
+                                        <p class="card-text">Time:<%=row.timeofnote %>
+                                        </p>
+
+                                        <a href="/viewnotes?id=<%= row.id %>&records" class="btn btn-primary"
+                                            role="button">Edit</a>
+
+                                        <button onclick="myFunction('<%= row.id %>','<%= row.title %>')"
+                                            class="btn btn-danger">Delete</button>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <%})}%>
+                </div>
+
+            </div>
+
+        </main>
+        <script>
+            function myFunction(id) {
+                let c = confirm("Press a button!");
+
+                if (c) {
+                    window.location.replace("/delete?id=" + id);
+                }
+            }
+        </script>
+         <script type="text/javascript">
+            function disableBack() { window.history.forward(); }
+            setTimeout("disableBack()", 0);
+            window.onunload = function () { null };
+        </script>
+</body>
+
+</html>
